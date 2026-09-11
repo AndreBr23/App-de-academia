@@ -8,7 +8,7 @@ import { AnelProgresso, BarrasSemana, GraficoFrequencia, MapaCalor } from '../co
 import { colors, radius, spacing } from '../theme/theme';
 import { useApp } from '../context/AppContext';
 import { DIAS, dateKey, diaKey, mesmoDia, nomeMes, semanaDe } from '../utils/date';
-import { primeiroNome } from '../utils/format';
+import { plural, primeiroNome } from '../utils/format';
 
 export default function InicioScreen({ navigation, abrirMenu }) {
   const { usuario, ficha, estatisticas, meusCheckins, marcarTreino } = useApp();
@@ -78,7 +78,11 @@ export default function InicioScreen({ navigation, abrirMenu }) {
             <Text style={estilos.heroDetalhe}>
               {ehDescanso
                 ? 'Aproveite para alongar e se recuperar.'
-                : `${treinoDeHoje.exercicios.length} exercícios programados`}
+                : `${treinoDeHoje.exercicios.length} ${plural(
+                    treinoDeHoje.exercicios.length,
+                    'exercício programado',
+                    'exercícios programados',
+                  )}`}
             </Text>
 
             {!ehDescanso ? (
@@ -106,7 +110,7 @@ export default function InicioScreen({ navigation, abrirMenu }) {
             rotulo="Na semana"
             sufixo="treinos"
           />
-          <CardNumero valor={estatisticas.noMes} rotulo={nomeMes(hoje).slice(0, 3)} sufixo="dias" />
+          <CardNumero valor={estatisticas.noMes} rotulo="No mês" sufixo="dias" />
         </View>
 
         {/* Gráfico de frequência */}

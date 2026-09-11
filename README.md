@@ -15,6 +15,10 @@ npm start
 
 Depois leia o QR Code no app **Expo Go** (ou use `npm run android` / `npm run ios`).
 
+Para abrir direto no navegador: `npm run web`. O app roda inteiro no web, inclusive a leitura da
+planilha — como o `expo-file-system` não tem implementação de web, ali o arquivo escolhido é lido
+pelo `FileReader` do próprio navegador (`src/utils/importarFicha.js`).
+
 > O `--legacy-peer-deps` evita que o npm aninhe `expo-asset`/`expo-constants` dentro de
 > `node_modules/expo`, o que faz o Metro não encontrá-los. O `package-lock.json` do repositório
 > já vem com a árvore correta.

@@ -6,6 +6,7 @@ import { Card, Etiqueta, Secao } from '../components/ui';
 import { colors, radius, spacing } from '../theme/theme';
 import { useApp } from '../context/AppContext';
 import { DIAS, diaKey, formatarDataHora } from '../utils/date';
+import { plural } from '../utils/format';
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -104,7 +105,7 @@ export default function FichaGeralScreen({ abrirMenu }) {
                     <Text style={estilos.diaResumo}>
                       {vazio
                         ? 'Sem treino programado'
-                        : `${doDia.exercicios.length} exercícios`}
+                        : `${doDia.exercicios.length} ${plural(doDia.exercicios.length, 'exercício', 'exercícios')}`}
                       {eHoje ? ' · hoje' : ''}
                     </Text>
                   </View>
