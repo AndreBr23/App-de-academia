@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "IronPulse",
+    "slug": "app-de-academia",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "scheme": "ironpulse",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0B1622"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ironpulse.app"
+    },
+    "android": {
+      "package": "com.ironpulse.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0B1622"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": ["expo-document-picker"]
+  }
+}
